@@ -51,11 +51,11 @@ class Dendron():
         for i in range(num_bonds+1):
             c = connect[i]
             if len(c) == 2:
-                self.angles.append(c[0], i, c[1])
+                self.angles.append([c[0], i, c[1]])
             if len(c) == 3:
-                self.angles.append(c[0], i, c[1])
-                self.angles.append(c[0], i, c[2])
-                self.angles.append(c[1], i, c[2])
+                self.angles.append([c[0], i, c[1]])
+                self.angles.append([c[0], i, c[2]])
+                self.angles.append([c[1], i, c[2]])
     
     def create(self, x0, y0, z0, z_direction):
         self.coords[0,0] = x0
@@ -63,4 +63,4 @@ class Dendron():
         self.coords[0,2] = z0
         for bond in self.bonds:
             self.coords[bond[1]] = self.coords[bond[0]] + random_vector(z_direction,length=0.4125 )
-        
+        return self.coords[1:,0], self.coords[1:,1], self.coords[1:,2]
