@@ -8,7 +8,7 @@ import random
 if __name__ == '__main__':
     num_grafting = 100
     track = ReadTrack('')
-    dendron = Dendron(n=2, g=2)
+    dendron = Dendron(n=2, g=0)
     while track.one_step():
         pass
     z0 = np.mean(track.z[track.btype==1])
